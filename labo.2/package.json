@@ -1,0 +1,19 @@
+{
+  "name": "taskbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "start": "tsc && electron dist/main/main.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "electron": "^40.2.1",
+    "typescript": "^5.9.3"
+  }
+}
