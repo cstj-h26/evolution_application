@@ -3,14 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Ma première app Electron</title>
-</head>
-<body style="color: white;">
-    <h1>TaskBox - Gestionnaire de tâches</h1>
     
-    <button id="about">À propos</button>
-    <button id="settings">Paramètres</button>
-    <button id="quit">Quitter</button>
+    <style>
+        body {
+            background: #003D5B;
+            background: linear-gradient(70deg,rgba(0, 61, 91, 1) 0%, rgba(0, 121, 140, 1) 100%);
+            color: #FFF;
+        }
 
+        #title {
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 40px;
+
+            user-select: none;
+            text-align: center;
+        }
+
+        button {
+            background-color: #EDAE49;
+            color: #FFF;
+            
+            font-weight: bold;
+            font-family: sans-serif;
+            
+            outline: none;
+            border: none;
+
+            cursor: pointer;
+            padding: 5px;
+            margin: 5px;
+
+            box-shadow: 0px 5px 0px #D1495B;
+            transition: .3s;
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 0px #D1495B;
+            transform: translateY(5px);
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">TaskBox - Gestionnaire de tâches</h1>
+    
+    <div class="buttons">
+        <button id="about">À propos</button>
+        <button id="settings">Paramètres</button>
+        <button id="quit">Quitter</button>
+    </div>
+    
     <script type="module" src="../../dist/preload/preload.js" ></script>
 </body>
 </html>

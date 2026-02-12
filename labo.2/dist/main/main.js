@@ -57,6 +57,7 @@ function openSplashWindow() {
         title: "Splash",
         modal: false,
         center: true,
+        frame: false,
         resizable: false,
         webPreferences: {
             nodeIntegration: true
@@ -81,4 +82,5 @@ function createTray() {
     tray.setToolTip(APP_NAME);
     tray.setContextMenu(menu);
 }
-electron_1.app.whenReady().then(openSplashWindow);
+// app.whenReady().then(openSplashWindow);
+electron_1.app.whenReady().then(openMainWindow);

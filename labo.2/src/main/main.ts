@@ -67,6 +67,7 @@ function openSplashWindow() {
         title: "Splash",
         modal: false,
         center: true,
+        frame: false,
         resizable: false,
         webPreferences: {
             nodeIntegration: true
@@ -100,4 +101,5 @@ function createTray() {
     tray.setContextMenu(menu);
 }
 
-app.whenReady().then(openSplashWindow);
+// app.whenReady().then(openSplashWindow);
+app.whenReady().then(openMainWindow);
