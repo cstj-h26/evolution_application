@@ -1,0 +1,22 @@
+
+.table-grid[data-v-63d97118] {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    gap: 10px;
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+.second-table-grid[data-v-63d97118] {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 10px;
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+.third-table-grid[data-v-63d97118] {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+    margin-bottom: 20px;
+    max-width: 700px;
+}

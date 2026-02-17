@@ -6,5 +6,7 @@ electron.contextBridge.exposeInMainWorld("electronAPI", {
   // Communication asynchrone
   onTaskResult: (callback) => {
     electron.ipcRenderer.on("task-result", (_, result) => callback(result));
-  }
+  },
+  performTask: (data) => electron.ipcRenderer.send("perform-task", data),
+  calculate: (a, b) => electron.ipcRenderer.invoke("calculate", { a, b })
 });

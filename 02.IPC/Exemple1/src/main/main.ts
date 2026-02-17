@@ -39,6 +39,10 @@ function setupIPC() {
             result: 'Tâche accomplie pâr le main'
         })
     });
+
+    // Exemple c. Communication IPC bidirectionnelle
+    // Déclaration d'un gestionaire IPC qui écoute les requêtes nommée "calculate"
+    ipcMain.handle('calculate', (_, {a, b}) => a+b);
 }
 
 app.whenReady().then(createWindow);

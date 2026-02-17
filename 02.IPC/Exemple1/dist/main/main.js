@@ -47,5 +47,6 @@ function setupIPC() {
       result: "Tâche accomplie pâr le main"
     });
   });
+  electron.ipcMain.handle("calculate", (_, { a, b }) => a + b);
 }
 electron.app.whenReady().then(createWindow);
