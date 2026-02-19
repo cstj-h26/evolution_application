@@ -5,7 +5,7 @@
       <div class="table-grid">
         <!-- Nom -->
         <label for="nom">Nom :</label>
-        <input id="nom" v-model="nom" type="text"/>
+        <input id="nom" v-model="nom" type="text" ref="monInput" />
        
         <!-- Prénom -->
         <label for="prenom">Prénom :</label>
@@ -122,27 +122,48 @@
         langagesChoisis: [], // Liste des langages choisis
       };
     },
-    methods: {
-      copierLangages() {
-        // Copier les valeurs sélectionnées de listeLangages et de les assigner à langagesChoisis
-        this.langagesChoisis = [...this.listeLangages];
-      },
-      viderLangages() {
-        // Vide la liste des langages choisis
-        this.langagesChoisis = [];
-      },
-      valider() {
-        // Logique pour valider le formulaire
-        console.log('Formulaire validé avec les données :', this.$data);
-        
-        const formData = {...this};
 
-        window.api.send("show-dialog", JSON.stringify(formData));
+    mounted() {
+        // Envoi d'un message au processus ¸
+        window.api.send("focus-nom")
+
+        // Appliquer focus une fois le signal reçu du main process
+        window.api.on("applu-focus", () => {
+            this.focusNom();
+        });
     },
-      annuler() {
-        // Logique pour annuler le formulaire
-        console.log('Formulaire annulé');
-      },
+
+    methods: {
+        focusNom() {
+            const inputElement = this.$refs.nomInput as HTMLInputElement;
+
+            if (inputElement) inputElement.focus()
+            else console.error("Non trouvé!")
+        },
+
+        copierLangages() {
+            // Copier les valeurs sélectionnées de listeLangages et de les assigner à langagesChoisis
+            this.langagesChoisis = [...this.listeLangages];
+        },
+        
+        viderLangages() {
+            // Vide la liste des langages choisis
+            this.langagesChoisis = [];
+        },
+      
+        valider() {
+            // Logique pour valider le formulaire
+            console.log('Formulaire validé avec les données :', this.$data);
+        
+            const formData = {...this};
+
+            window.api.send("show-dialog", JSON.stringify(formData));
+        },
+
+        annuler() {
+            // Logique pour annuler le formulaire
+            console.log('Formulaire annulé');
+        },
     },
   };
   </script>

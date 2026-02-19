@@ -60,4 +60,9 @@ ipcMain.on("show-dialog", (event, formDataString) => {
         detail: Object.values(message).join('\n'),
         buttons: ['OK']
     })
-})
+});
+
+// b-
+ipcMain.on('focus-nom', (event) => {
+    event.sender.send("apply-focus");
+});
