@@ -66,3 +66,15 @@ ipcMain.on("show-dialog", (event, formDataString) => {
 ipcMain.on('focus-nom', (event) => {
     event.sender.send("apply-focus");
 });
+
+// Afficher le dialog d'erreur pour le champ nom
+ipcMain.on("show-nom-error", (event) => {
+    dialog.showMessageBox({
+        type: 'warning',
+        title: "Erreur de saisie",
+        message: 'Veuillez remplir le champ "Nom" d\'abord',
+        buttons: ['OK']
+    }).then(() => {
+        event.sender.send("nom-error-ok");
+    });
+});

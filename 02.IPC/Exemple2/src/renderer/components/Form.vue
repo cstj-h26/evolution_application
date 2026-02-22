@@ -9,7 +9,7 @@
        
         <!-- Prénom -->
         <label for="prenom">Prénom :</label>
-        <input id="prenom" v-model="prenom" type="text" />
+        <input id="prenom" v-model="prenom" type="text" @focus="checkNom" />
 
         <!-- Date de naissance -->
         <label for="dateNaissance">Date de naissance :</label>
@@ -17,7 +17,10 @@
   
         <!-- Adresse de courriel -->
         <label for="email">Adresse de courriel :</label>
-        <input id="email" v-model="email" type="email" placeholder="exemple@domaine.com"/>
+        <div>
+          <div v-if="showEmailError" style="color: red; font-size: 0.9em;">The format of your email isn't good!</div>
+          <input id="email" v-model="email" type="email" placeholder="exemple@domaine.com" @dblclick="email = ''" @blur="validateEmail"/>
+        </div>
     
         <!-- Région -->
         <label for="region">Région :</label>
@@ -67,8 +70,8 @@
          <div class="second-table-grid">
             <span>
                 <label> Faites un choix (2 ou +): </label>
-                
-                <select v-model="listeLangages" multiple style="width: 150px;">
+                <div v-if="showLangageError" style="color: red; font-size: 0.9em;">Please select between 2 and 4 programming languages</div>
+                <select v-model="listeLangages" multiple style="width: 150px;" @change="validateLangages">
                     <option>C#</option>
                     <option>Java</option>
                     <option>Python</option>
@@ -120,6 +123,8 @@
         etatMatrimonial: '',
         listeLangages: [],
         langagesChoisis: [], // Liste des langages choisis
+        showEmailError: false,
+        showLangageError: false,
       };
     },
 
@@ -131,11 +136,32 @@
         window.api.on("applu-focus", () => {
             this.focusNom();
         });
+
+        // Écouter la réponse du dialog
+        window.api.on("nom-error-ok", () => {
+            this.focusNom();
+        });
     },
 
     methods: {
+        validateLangages() {
+            const count = this.listeLangages.length;
+            this.showLangageError = count < 2 || count > 4;
+        },
+
+        validateEmail() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            this.showEmailError = !emailRegex.test(this.email);
+        },
+
+        checkNom() {
+            if (!this.nom.trim()) {
+                window.api.send("show-nom-error");
+            }
+        },
+
         focusNom() {
-            const inputElement = this.$refs.nomInput as HTMLInputElement;
+            const inputElement = this.$refs.monInput as HTMLInputElement;
 
             if (inputElement) inputElement.focus()
             else console.error("Non trouvé!")
@@ -161,8 +187,18 @@
         },
 
         annuler() {
-            // Logique pour annuler le formulaire
-            console.log('Formulaire annulé');
+            this.nom = '';
+            this.prenom = '';
+            this.dateNaissance = '';
+            this.email = '';
+            this.region = 'Laurentides';
+            this.statutProfessionnel = [];
+            this.etatMatrimonial = '';
+            this.listeLangages = [];
+            this.langagesChoisis = [];
+            this.showEmailError = false;
+            this.showLangageError = false;
+            this.focusNom();
         },
     },
   };

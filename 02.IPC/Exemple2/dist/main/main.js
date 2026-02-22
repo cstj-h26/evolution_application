@@ -69,3 +69,16 @@ electron.ipcMain.on("show-dialog", (event, formDataString) => {
     buttons: ["OK"]
   });
 });
+electron.ipcMain.on("focus-nom", (event) => {
+  event.sender.send("apply-focus");
+});
+electron.ipcMain.on("show-nom-error", (event) => {
+  electron.dialog.showMessageBox({
+    type: "warning",
+    title: "Erreur de saisie",
+    message: `Veuillez remplir le champ "Nom" d'abord`,
+    buttons: ["OK"]
+  }).then(() => {
+    event.sender.send("nom-error-ok");
+  });
+});
