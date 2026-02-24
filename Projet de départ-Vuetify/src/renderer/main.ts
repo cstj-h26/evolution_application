@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from './App.vue';
-
+import { createPinia } from "pinia";
 import router from './router'; // Importation du routeur pour la navigation entre les pages
 
 
@@ -41,6 +41,10 @@ declare global {
 
 
 const app = createApp(App); // Création de l'application Vue.js avec le composant principal App
+
+const pinia = createPinia();
+app.use(pinia)
+
 app.use(router); // Utilisation du routeur pour la navigation entre les pages
 app.use(vuetify); // Utilisation de Vuetify
 app.mount('#app'); // Montage de l'application sur l'élément DOM avec l'ID 'app'
