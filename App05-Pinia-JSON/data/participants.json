@@ -1,0 +1,128 @@
+[
+  {
+    "matricule": 103,
+    "prenom": "Sophie",
+    "nom": "Bertrand",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "sophie.bertrand@example.com",
+    "isActif": false
+  },
+  {
+    "matricule": 105,
+    "prenom": "Emma",
+    "nom": "Rousseau",
+    "genre": "",
+    "niveau": "",
+    "email": "emma.rousseau@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 106,
+    "prenom": "Lucas",
+    "nom": "Morel",
+    "genre": "",
+    "niveau": "",
+    "email": "lucas.morel@example.com",
+    "isActif": false
+  },
+  {
+    "matricule": 107,
+    "prenom": "Léa",
+    "nom": "Martinez",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "lea.martinez@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 108,
+    "prenom": "Thomas",
+    "nom": "Dubois",
+    "genre": "",
+    "niveau": "",
+    "email": "thomas.dubois@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 109,
+    "prenom": "Clara",
+    "nom": "Vidal",
+    "genre": "",
+    "niveau": "",
+    "email": "clara.vidal@example.com",
+    "isActif": false
+  },
+  {
+    "matricule": 111,
+    "prenom": "Manon",
+    "nom": "Chevalier",
+    "genre": "",
+    "niveau": "",
+    "email": "manon.chevalier@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 112,
+    "prenom": "Gabriel",
+    "nom": "Perrin",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "gabriel.perrin@example.com",
+    "isActif": false
+  },
+  {
+    "matricule": 113,
+    "prenom": "Victoria",
+    "nom": "Germain",
+    "genre": "",
+    "niveau": "",
+    "email": "victoria.germain@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 114,
+    "prenom": "Alexandre",
+    "nom": "Lambert",
+    "genre": "",
+    "niveau": "",
+    "email": "alexandre.lambert@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 115,
+    "prenom": "Élise",
+    "nom": "Leclerc",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "elise.leclerc@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 118,
+    "prenom": "Antoine",
+    "nom": "Blanchard",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "antoine.blanchard@example.com",
+    "isActif": true
+  },
+  {
+    "matricule": 119,
+    "prenom": "Mathilde",
+    "nom": "Dupont",
+    "genre": "",
+    "niveau": "",
+    "email": "mathilde.dupont@example.com",
+    "isActif": false
+  },
+  {
+    "matricule": "05555",
+    "prenom": "s",
+    "nom": "s",
+    "genre": "",
+    "niveau": "Professionnel",
+    "email": "",
+    "isActif": true
+  }
+]
